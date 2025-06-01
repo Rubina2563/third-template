@@ -179,7 +179,30 @@
 
 </footer>
 
+<script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+    /*for faq*/
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isActive = item.classList.contains('active');
 
+      // Close all items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.faq-toggle').textContent = '+'; // reset toggle
+      });
+
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+        item.querySelector('.faq-toggle').textContent = '×';
+      }
+    });
+  });
+  </script>
 
  
 </body>
